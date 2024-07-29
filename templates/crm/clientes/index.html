@@ -1,0 +1,84 @@
+{% extends "layouts/base.html" %}
+
+
+{% block title %} CLIENTE {% endblock title %}
+
+{% block content %}
+
+
+<div class="container-fluid py-8">
+    <div class="row min-vh-80">
+        <div class="col-12">
+            <div class="card h-100">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <h5 class="text-white text-capitalize ps-3">NUEVO CLIENTE</h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="mt-5 min-height-500">
+                        <form method="post" action="{% url 'create_cliente' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="{{ form.nombre.id_for_label }}"
+                                            class="form-label">{{form.nombre.label }}</label>
+                                        <input type="text" class="form-control" name="{{ form.nombre.name }}"
+                                            id="{{ form.nombre.id_for_label }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label for="{{ form.segundo_nombre.id_for_label }}"
+                                            class="form-label">{{form.segundo_nombre.label}}</label>
+                                        <input type="text" class="form-control" name="{{ form.segundo_nombre.name }}"
+                                            id="{{ form.segundo_nombre.id_for_label }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.apellido_paterno.label_tag }}
+                                    {{ form.apellido_paterno }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.apellido_materno.label_tag }}
+                                    {{ form.apellido_materno }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.is_persona_fisica_moral.label_tag }}
+                                    {{ form.is_persona_fisica_moral }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.numero.label_tag }}
+                                    {{ form.numero }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.segundo_numero.label_tag }}
+                                    {{ form.segundo_numero }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.correo.label_tag }}
+                                    {{ form.correo }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.avatar.label_tag }}
+                                    {{ form.avatar }}
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+{% endblock content %}
