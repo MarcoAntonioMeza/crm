@@ -3,6 +3,7 @@ from usuario.models import Usuario  # Importa tu modelo de usuario personalizado
 
 from django.contrib.auth import get_user_model
 from django.utils import timezone
+from auditlog.registry import auditlog
 
 User = get_user_model()
 
@@ -47,3 +48,6 @@ class Cliente(models.Model):
     
     def __str__(self):
         return f'{self.nombre} {self.segundo_nombre} {self.apellido_paterno} {self.apellido_materno}'
+
+
+auditlog.register(Cliente)

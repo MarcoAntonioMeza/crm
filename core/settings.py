@@ -30,8 +30,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'admin_material.apps.AdminMaterialDashboardConfig',
+    'auditlog',
     'usuario',
-    'crm'
+    'crm',
+    'colegio'
 ]
 
 MIDDLEWARE = [
@@ -127,4 +129,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#AUTH_USER_MODEL = 'usuario.Usuario'
+AUTH_USER_MODEL = 'usuario.Usuario'

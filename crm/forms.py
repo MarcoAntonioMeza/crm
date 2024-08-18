@@ -45,7 +45,8 @@ class ClienteForm(forms.ModelForm):
         if usuario and isinstance(usuario, User):
             if not instance.pk:
                 instance.created_by = usuario
-            instance.updated_by = usuario
+            else:
+                instance.updated_by = usuario
         if commit:
-            instance.save(user=usuario)
+            instance.save()  # No pases 'user' aquí, ya que el modelo maneja eso
         return instance
